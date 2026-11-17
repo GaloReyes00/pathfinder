@@ -1,0 +1,91 @@
+[
+  {
+    "id": "P01",
+    "description": "First-year student starting from scratch, aiming for machine learning engineering.",
+    "completed": [],
+    "max_units": 15,
+    "semesters": 8,
+    "interests": "machine learning, deep learning, AI, Python, data analysis",
+    "target_role": "Machine Learning Engineer"
+  },
+  {
+    "id": "P02",
+    "description": "Second-year student who finished intro programming and calculus, aiming for full-stack web development.",
+    "completed": [
+      "CSC 101",
+      "CSC 215",
+      "MATH 226",
+      "MATH 227"
+    ],
+    "max_units": 13,
+    "semesters": 6,
+    "interests": "web development, JavaScript, databases, user interfaces",
+    "target_role": "Full-Stack Software Engineer"
+  },
+  {
+    "id": "P03",
+    "description": "Junior transfer student with all lower-division major courses done, aiming for cybersecurity.",
+    "completed": [
+      "CSC 101",
+      "CSC 215",
+      "CSC 220",
+      "CSC 230",
+      "CSC 256",
+      "MATH 225",
+      "MATH 226",
+      "MATH 227",
+      "PHYS 220",
+      "PHYS 222",
+      "PHYS 230",
+      "PHYS 232"
+    ],
+    "max_units": 15,
+    "semesters": 4,
+    "interests": "security, networking, cryptography, Linux systems",
+    "target_role": "Security Engineer"
+  },
+  {
+    "id": "P04",
+    "description": "Senior close to graduating, aiming for data engineering.",
+    "completed": [
+      "CSC 101",
+      "CSC 215",
+      "CSC 220",
+      "CSC 230",
+      "CSC 256",
+      "MATH 225",
+      "MATH 226",
+      "MATH 227",
+      "PHYS 220",
+      "PHYS 222",
+      "PHYS 230",
+      "PHYS 232",
+      "CSC 300GW",
+      "CSC 317",
+      "CSC 340",
+      "CSC 413",
+      "MATH 324"
+    ],
+    "max_units": 12,
+    "semesters": 3,
+    "interests": "databases, SQL, data pipelines, distributed systems",
+    "target_role": "Data Engineer"
+  },
+  {
+    "id": "P05",
+    "description": "Part-time working student partway through lower division, aiming for mobile app development.",
+    "completed": [
+      "CSC 101",
+      "CSC 215",
+      "CSC 220",
+      "MATH 226",
+      "MATH 227",
+      "PHYS 220",
+      "PHYS 222"
+    ],
+    "max_units": 9,
+    "semesters": 7,
+    "interests": "mobile apps, iOS, Android, user experience",
+    "target_role": "Mobile Developer"
+  }
+]
