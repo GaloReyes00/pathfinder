@@ -4,55 +4,127 @@
     "title": "Intro to Programming (fictional test course)",
     "units": 3,
     "description": "Made-up course used only by the automated tests.",
-    "prereqs": {"all": []}
+    "prereqs": {
+      "all": []
+    }
   },
   {
     "id": "TEST 110",
     "title": "Discrete Math (fictional test course)",
     "units": 3,
     "description": "Made-up course used only by the automated tests.",
-    "prereqs": {"all": []}
+    "prereqs": {
+      "all": []
+    }
   },
   {
     "id": "TEST 120",
     "title": "Logic (fictional test course)",
     "units": 3,
     "description": "Made-up course used only by the automated tests.",
-    "prereqs": {"all": []}
+    "prereqs": {
+      "all": []
+    }
   },
   {
     "id": "TEST 201",
     "title": "Data Structures (fictional test course)",
     "units": 4,
     "description": "Made-up course used only by the automated tests.",
-    "prereqs": {"all": ["TEST 101"]}
+    "prereqs": {
+      "all": [
+        "TEST 101"
+      ]
+    }
   },
   {
     "id": "TEST 301",
     "title": "Algorithms (fictional test course)",
     "units": 3,
     "description": "Made-up course used only by the automated tests.",
-    "prereqs": {"all": ["TEST 201", {"any": ["TEST 110", "TEST 120"]}]}
+    "prereqs": {
+      "all": [
+        "TEST 201",
+        {
+          "any": [
+            "TEST 110",
+            "TEST 120"
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "TEST 350",
     "title": "Elective A (fictional test course)",
     "units": 3,
     "description": "Made-up course used only by the automated tests.",
-    "prereqs": {"all": ["TEST 201"]}
+    "prereqs": {
+      "all": [
+        "TEST 201"
+      ]
+    }
   },
   {
     "id": "TEST 360",
     "title": "Elective B (fictional test course)",
     "units": 3,
     "description": "Made-up course used only by the automated tests.",
-    "prereqs": {"all": ["TEST 201"]}
+    "prereqs": {
+      "all": [
+        "TEST 201"
+      ]
+    }
   },
   {
     "id": "TEST 400",
     "title": "Capstone (fictional test course)",
     "units": 3,
     "description": "Made-up course used only by the automated tests.",
-    "prereqs": {"all": ["TEST 301"]}
+    "prereqs": {
+      "all": [
+        "TEST 301"
+      ]
+    }
+  },
+  {
+    "id": "TEST 220",
+    "title": "Physics Lecture (fictional test course)",
+    "units": 3,
+    "description": "Made-up course used only by the automated tests.",
+    "prereqs": {
+      "all": [
+        "TEST 101"
+      ]
+    },
+    "coreqs": [
+      "TEST 222"
+    ]
+  },
+  {
+    "id": "TEST 222",
+    "title": "Physics Lab (fictional test course)",
+    "units": 1,
+    "description": "Made-up course used only by the automated tests.",
+    "prereqs": {
+      "all": []
+    },
+    "coreqs": [
+      "TEST 220"
+    ]
+  },
+  {
+    "id": "TEST 230",
+    "title": "Systems (fictional test course)",
+    "units": 3,
+    "description": "Made-up course used only by the automated tests.",
+    "prereqs": {
+      "all": [
+        "TEST 101"
+      ]
+    },
+    "coreqs": [
+      "TEST 110"
+    ]
   }
 ]

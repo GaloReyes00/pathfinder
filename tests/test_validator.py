@@ -70,6 +70,42 @@ def test_message_lists_every_missing_part():
     assert "TEST 201 and (TEST 110 or TEST 120)" in problems[0]
 
 
+# --- corequisite violations ----------------------------------------------------
+# TEST 220 (lecture) and TEST 222 (lab) are each other's coreqs.
+# TEST 230 has prereq TEST 101 and coreq TEST 110 (same semester or earlier).
+
+def test_coreqs_taken_together_are_valid():
+    assert check([["TEST 101"], ["TEST 220", "TEST 222"]]) == []
+
+
+def test_lecture_without_its_lab_is_reported():
+    problems = check([["TEST 101"], ["TEST 220"]])
+    assert types(problems) == ["coreq"]
+    assert "TEST 220 needs TEST 222 in the same semester or earlier" in problems[0]
+
+
+def test_lab_without_its_lecture_is_reported():
+    assert types(check([["TEST 222"]])) == ["coreq"]
+
+
+def test_coreq_already_completed_counts():
+    assert check([["TEST 222"]], completed=["TEST 220"]) == []
+
+
+def test_coreq_may_be_taken_earlier_or_in_the_same_semester():
+    assert check([["TEST 101", "TEST 110"], ["TEST 230"]]) == []
+    assert check([["TEST 101"], ["TEST 110", "TEST 230"]]) == []
+
+
+def test_coreq_taken_later_does_not_count():
+    assert types(check([["TEST 101"], ["TEST 230"], ["TEST 110"]])) == ["coreq"]
+
+
+def test_prereq_cannot_be_satisfied_like_a_coreq():
+    # TEST 101 is a prereq of TEST 230, so the same semester is not enough.
+    assert types(check([["TEST 101", "TEST 110", "TEST 230"]])) == ["prereq"]
+
+
 # --- other rule violations -----------------------------------------------------
 
 def test_unknown_course_is_reported():

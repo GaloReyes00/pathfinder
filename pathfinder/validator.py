@@ -10,10 +10,14 @@ Shapes
 ------
 plan     [["CSC 101", "CSC 110"], ["CSC 201"], ...]   one inner list per semester
 profile  {"completed": ["CSC 101"], "max_units": 15, "semesters": 4}
-course   {"id": "CSC 201", "units": 3, "prereqs": {"all": ["CSC 101", {"any": ["CSC 110", "CSC 120"]}]}}
+course   {"id": "CSC 201", "units": 3, "prereqs": {"all": ["CSC 101", {"any": ["CSC 110", "CSC 120"]}]},
+          "coreqs": ["CSC 202"]}
+
+prereqs must be finished in an EARLIER semester (or already completed).
+coreqs may be taken in the SAME semester or earlier (for example a lecture and its lab).
 
 Every violation is a string that starts with its type, then a colon:
-unknown_course, already_completed, repeat, prereq, units, semesters, requirement.
+unknown_course, already_completed, repeat, prereq, coreq, units, semesters, requirement.
 """
 from __future__ import annotations
 
@@ -106,6 +110,7 @@ def validate_plan(plan, profile, courses=None, requirements=None):
 
     for number, semester in enumerate(plan, start=1):
         course_ids = [normalize_id(c) for c in semester]
+        this_semester = {c for c in course_ids if c in courses}
         units = 0
         for course_id in course_ids:
             where = f"Semester {number}: {course_id}"
@@ -123,6 +128,9 @@ def validate_plan(plan, profile, courses=None, requirements=None):
             missing = unmet_prereqs(courses[course_id].get("prereqs"), done)
             if missing:
                 problems.append(f"prereq: {where} needs {missing} in an earlier semester.")
+            missing = unmet_prereqs(courses[course_id].get("coreqs"), done | this_semester)
+            if missing:
+                problems.append(f"coreq: {where} needs {missing} in the same semester or earlier.")
         if max_units is not None and units > max_units:
             problems.append(f"units: Semester {number} has {units} units but the limit is {max_units}.")
         # Courses only count as prerequisites for later semesters, never the same one.
